@@ -1,0 +1,38 @@
+//Verónica Chávez, me evaluó Verónica Herrera con 5/5, todo corre bien y se hicieron las correcciones pertinentes
+package codigo5;
+
+import java.util.Scanner; // Importación necesaria para usar Scanner
+
+public class Codigo5 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in); // Corrección del constructor de Scanner
+
+        System.out.print("Introduzca un número: "); // Corrección en la cadena de texto
+        String niString = s.nextLine(); // Corrección en la lectura de la línea como String
+        int ni = Integer.parseInt(niString); // Conversión de String a int
+        int c = ni; // Guardar el valor original para su uso posterior
+
+        int afo = 0;
+        int noAfo = 0;
+
+        // Corrección del bucle while para que funcione con int
+        while (ni > 0) {
+            int digito = ni % 10; // Obtención del último dígito
+            if (digito == 3 || digito == 7 || digito == 8 || digito == 9) {
+                afo++;
+            } else {
+                noAfo++;
+            }
+            ni /= 10; // Corrección de la posición de ni /= 10
+        }
+
+        // Corrección de la salida del texto
+        if (afo > noAfo) {
+            System.out.println("El " + c + " es un número afortunado.");
+        } else {
+            System.out.println("El " + c + " no es un número afortunado.");
+        }
+
+        s.close(); // Cerrando el scanner
+    }
+}
